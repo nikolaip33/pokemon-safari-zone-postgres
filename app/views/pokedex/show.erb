@@ -12,7 +12,7 @@
         </p>
 
         <form method="post" action="/pokemon">
-            <input type="hidden" value="<%=@pokemon.id%>">
+            <input type="hidden" name="id" value="<%=@pokemon.id%>">
             <input type="submit" value="Catch">
         </form>
         

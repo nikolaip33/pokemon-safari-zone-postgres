@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Pokedex Entries</h1>
+    </div>
+</div>    
+<div class="row">
+    <% @pokelist.each.with_index(@index) do |pokemon, i| %>
+
+    <div class="col-sm-3 col-xs-6  pokegrid text-center">
+        <p><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(i)%>.png"></p>
+        <p><%= pokemon["name"].capitalize %>
+        <br>
+        <%= i %>
+        </p>
+    </div>
+
+    <% end %>
+</div>
