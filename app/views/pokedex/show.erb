@@ -12,14 +12,14 @@
         </p>
 
         <form method="post" action="/pokemon">
-            <input type="hidden" name="id" value="<%=@pokemon.id%>">
-            <input type="submit" value="Catch">
+            <input type="hidden" name="id" paravalue="<%=@pokemon.id%>">
+            <input class="btn btn-success" type="submit" value="Catch">
         </form>
         
     </div>
 </div>
 
-<div class="row">
+<div class="row stat-boxes">
     <div class="col-md-4 col-xs-6">
         <h3>Health</h3>
         <p><%= @pokemon.hp %></p>
@@ -37,11 +37,11 @@
         <p><%= @pokemon.defense %></p>
     </div>
     <div class="col-md-4 col-xs-6">
-        <h3>Special Attack</h3>
+        <h3>Sp. Attack</h3>
         <p><%= @pokemon.special_attack %></p>
     </div>
     <div class="col-md-4 col-xs-6">
-        <h3>Special Defense</h3>
+        <h3>Sp. Defense</h3>
         <p><%= @pokemon.special_defense %></p>
     </div>
 </div>

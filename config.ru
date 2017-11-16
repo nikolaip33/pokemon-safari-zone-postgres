@@ -8,6 +8,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'pokemon', 'pokemon'
 end
 
+use SessionsController
 use TrainersController
 use PokemonController
 use PokedexController

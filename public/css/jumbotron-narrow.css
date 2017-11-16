@@ -105,11 +105,27 @@ body {
 img {
   max-width: 100%;
   max-height: 100%;
-
 }
 
 .shadow {
   -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+}
+
+.stat-boxes p, .stat-boxes h3 {
+  text-align: center;
+}
+
+.input-group-addon {
+  top: 0;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.shiny {
+  -webkit-filter: invert(100%); /* Safari */
+  filter: invert(100%);
 }

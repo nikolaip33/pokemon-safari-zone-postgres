@@ -8,7 +8,7 @@ class TrainersController < ApplicationController
 
     end
 
-    get '/trainers/id:/' do
+    get '/trainers/:id' do
         
     end
 

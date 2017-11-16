@@ -1,6 +1,7 @@
 class PokedexController < ApplicationController
 
     get '/pokedex/pokemon/:id' do
+        session[:user_id] = Trainer.first.id
         @pokemon = PokemonBase.find_or_create_from_api(params[:id])
         erb :"/pokedex/show"
     end
