@@ -6,7 +6,6 @@ html, body {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: url("../images/background-gray.png");
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -87,6 +86,8 @@ body {
   background-color: #fff;
   height: 100%;
   min-height: 100%;
+  border: 1px solid #ccc;
+  
 }
 
 .footer {
@@ -98,10 +99,17 @@ body {
   background-color: #f5f5f5;
   right: 0;
   left: 0;
+  
 }
 
 img {
   max-width: 100%;
   max-height: 100%;
 
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
 }
