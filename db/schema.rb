@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116024030) do
+ActiveRecord::Schema.define(version: 20171116043932) do
 
   create_table "pokemon", force: :cascade do |t|
     t.string  "name"
     t.string  "type_1"
     t.string  "type_2"
-    t.decimal "height"
-    t.decimal "weight"
+    t.integer "height"
+    t.integer "weight"
     t.integer "level"
     t.string  "nickname"
     t.integer "trainer_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20171116024030) do
     t.string  "name"
     t.string  "type_1"
     t.string  "type_2"
-    t.string  "height"
-    t.string  "weight"
-    t.string  "level"
+    t.integer "height"
+    t.integer "weight"
+    t.integer "level"
     t.integer "speed"
     t.integer "special_defense"
     t.integer "special_attack"

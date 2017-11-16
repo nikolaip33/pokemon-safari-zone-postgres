@@ -22,7 +22,7 @@ class PokemonBase < ActiveRecord::Base
     end
 
     def self.find_or_create_from_api(id)
-        self.find_by(id: id.to_i) || self.create_from_api(id)
+        find_by(id: id.to_i) || create_from_api(id)
     end
 
 end
