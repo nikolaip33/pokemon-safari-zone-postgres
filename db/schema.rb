@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116043932) do
+ActiveRecord::Schema.define(version: 20171116052734) do
 
   create_table "pokemon", force: :cascade do |t|
     t.string  "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171116043932) do
     t.integer "defense"
     t.integer "attack"
     t.integer "hp"
+    t.integer "pokedex_number"
   end
 
   create_table "pokemon_bases", force: :cascade do |t|
