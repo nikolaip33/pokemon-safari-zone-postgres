@@ -36,3 +36,22 @@ img {
 .navbar-brand {
   height: 110px;
 }
+
+.input-group-addon {
+  top: 0
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.error-text {
+  font-size: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+.error-img {
+  position: relative;
+  margin: auto;
+}

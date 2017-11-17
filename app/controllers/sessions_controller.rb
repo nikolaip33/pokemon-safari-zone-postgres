@@ -4,4 +4,8 @@ class SessionsController < ApplicationController
         erb :"/sessions/register"
     end
 
+    get '/signin' do
+        erb :"/sessions/signin"
+    end
+
 end
