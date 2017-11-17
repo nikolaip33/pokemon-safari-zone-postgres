@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     post '/register' do
         binding.pry
-        if params[:username].empty? || if params[:username].empty? || if params[:username].empty?
+        if params[:username].empty? || params[:username].empty? || params[:username].empty?
             redirect "/register"
         elsif Trainer.find_by(username: params[:username]) || Trainer.find_by(email: params[:email])
             redirect "/register"

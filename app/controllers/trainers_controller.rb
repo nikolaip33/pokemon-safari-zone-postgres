@@ -1,7 +1,7 @@
 class TrainersController < ApplicationController
     
     get '/trainers' do
-
+        
     end
     
     get '/trainers/:id/edit' do
