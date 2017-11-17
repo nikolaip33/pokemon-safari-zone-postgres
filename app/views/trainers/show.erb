@@ -1,0 +1,15 @@
+<div class="row trainer-info">
+    <div class="col-xs-12">
+        @<%= @trainer.username %>
+    </div>
+</div>
+<hr>
+<div class="row trainer-pokemon">
+    <% @trainer.pokemon.each do |p| %>
+        <div class="col-xs-4">
+        <%= p.name %>
+        </div>
+
+    <% end %>
+
+</div

@@ -1,7 +1,7 @@
 class TrainersController < ApplicationController
     
     get '/trainers' do
-        
+
     end
     
     get '/trainers/:id/edit' do
@@ -9,7 +9,12 @@ class TrainersController < ApplicationController
     end
 
     get '/trainers/:id' do
-        
+        if logged_in?
+            @trainer = current_user
+            erb :"/trainers/show"
+        else
+
+        end
     end
 
     post '/trainers/:id' do
