@@ -2,7 +2,7 @@
 <div class="col-sm-6 pokegrid">
     <img class="<%= @pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(@pokemon.pokedex_number)%>.png">
 </div>
-<div class="col-sm-6">
+<div class="col-sm-6 poke-bio">
     <h1><%= @pokemon.name.capitalize %>  <%=PokedexController.img_index(@pokemon.pokedex_number)%></h1>
     <p>
     Type: <%= @pokemon.type_1.capitalize %><% if @pokemon.type_2 != nil%>, <%= @pokemon.type_2.capitalize %><% end %><br>
@@ -21,7 +21,7 @@
 </div>
 </div>
 
-<div class="row stat-boxes">
+<div class="row poke-stats">
 <div class="col-md-4 col-xs-6">
     <h3>Health</h3>
     <p><%= @pokemon.hp %></p>

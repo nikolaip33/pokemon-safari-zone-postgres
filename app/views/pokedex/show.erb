@@ -2,7 +2,7 @@
     <div class="col-sm-6 pokegrid">
         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(@pokemon.id)%>.png">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 poke-bio">
         <h1><%= @pokemon.name.capitalize %>  <%=PokedexController.img_index(@pokemon.id)%></h1>
         <p>
         Type: <%= @pokemon.type_1.capitalize %><% if @pokemon.type_2 != nil%>, <%= @pokemon.type_2.capitalize %><% end %><br>
