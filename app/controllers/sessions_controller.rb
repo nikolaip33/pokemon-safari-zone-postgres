@@ -24,16 +24,28 @@ class SessionsController < ApplicationController
         end
     end
 
-    get '/signin' do
+    get '/sign-in' do
         if logged_in?
             redirect "/trainers/#{@current_user.id}"
         else
-            erb :"/sessions/signin"
+            erb :"/sessions/sign_in"
         end
     end
 
-    post '/signin' do
-        
+    post '/sign-in' do
+        @trainer = Trainer.find_by(username: params[:username])
+        binding.pry
+        if @trainer && @trainer.authenticate(params[:password])
+            login(@trainer)
+            redirect "/trainers/#{@trainer.id}"
+        else
+            redirect '/sign-in'
+        end
+    end
+
+    get '/logout' do
+        logout
+        redirect "/sign-in"
     end
 
 end
