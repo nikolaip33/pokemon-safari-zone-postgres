@@ -18,7 +18,6 @@ class PokemonController < ApplicationController
         else
             redirect "/sign-in"
         end
-        
     end
 
     get '/pokemon/:id' do
@@ -32,6 +31,17 @@ class PokemonController < ApplicationController
             if @pokemon = current_user.pokemon.find_by(id: params[:id])
                 @pokemon.update(params[:p])
                 redirect "/pokemon/#{@pokemon.id}"
+            end
+        else
+            redirect "/sign-in"
+        end
+    end
+
+    delete '/pokemon/:id' do
+        if logged_in?
+            @pokemon = current_user.pokemon.find_by(id: params[:id])
+            if @pokemon && @pokemon.destroy
+                redirect "/trainers/#{current_user.id}"
             end
         else
             redirect "/sign-in"
