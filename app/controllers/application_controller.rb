@@ -24,9 +24,14 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def current_user
-      @current_user ||= Trainer.find(session[:user_id])
+    def login(user)
+      session[:user_id] = user.id
     end
+
+    def current_user
+      @current_user ||= Trainer.find(session[:user_id]) if session[:id]
+    end
+
   end
 
 end
