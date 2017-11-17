@@ -49,7 +49,8 @@ class SessionsController < ApplicationController
     end
 
     get '/logout' do
-        logout
+        session.clear
+        @current_user = nil
         redirect "/sign-in"
     end
 

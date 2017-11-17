@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= Trainer.find_by(session[:user_id]) if session[:user_id]
+      @current_user ||= Trainer.find_by(id: session[:user_id]) if session[:user_id]
     end
 
     def login(user)
@@ -34,6 +34,7 @@ class ApplicationController < Sinatra::Base
 
     def logout
       session.clear
+      redirect "/sign-in"
     end
 
   end

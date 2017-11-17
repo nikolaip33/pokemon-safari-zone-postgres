@@ -13,7 +13,7 @@ class TrainersController < ApplicationController
             @trainer = current_user
             erb :"/trainers/show"
         else
-
+            redirect "/sign-in"
         end
     end
 
