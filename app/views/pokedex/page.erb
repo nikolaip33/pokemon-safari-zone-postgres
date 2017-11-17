@@ -24,21 +24,24 @@
         </nav>
     </div>
 </div>  
-
+<hr>
 <div class="row">
     <% @pokelist.each.with_index(@index) do |pokemon, i| %>
 
-    <div class="col-sm-3 col-xs-6  pokegrid text-center">
-        <p><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(i)%>.png"></p>
-        <p><%= pokemon["name"].capitalize %>
-        <br>
-        <%= i %>
-        </p>
+
+    <div class="col-sm-3 col-xs-6  poke-grid text-center">
+        <a href="/pokedex/pokemon/<%=i%>">
+            <div class="inner">
+                <p><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(i)%>.png"></p>
+                <p><%= pokemon["name"].capitalize %><br><%=i%></p>
+            </div>
+        </a>
     </div>
+
 
     <% end %>
 </div>
-
+<hr>
 <div class="row">
     <div class="col-xs-12 text-center">
         <nav aria-label="Page navigation">
