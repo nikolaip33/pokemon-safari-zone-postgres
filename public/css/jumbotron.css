@@ -1,7 +1,8 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 70px;
+  padding-top: 130px;
   padding-bottom: 20px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .shiny {
@@ -18,11 +19,20 @@ img {
   font-size: 22px;
 }
 
+.poke-bio .btn {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
 .poke-stats {
   font-size: 22px;
+  text-align: center;
 }
 
 .navbar-inverse {
   background-color: #cc0000;
   border-bottom: 5px #990033 solid;
+}
+.navbar-brand {
+  height: 110px;
 }
