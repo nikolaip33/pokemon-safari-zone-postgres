@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     get '/register' do
+        binding.pry
         if logged_in?
             redirect "/trainers/#{@current_user.id}"
         else
@@ -10,14 +11,16 @@ class SessionsController < ApplicationController
 
     post '/register' do
         binding.pry
-        if params[:username].empty? || params[:username].empty? || params[:username].empty?
-            redirect "/register"
-        elsif Trainer.find_by(username: params[:username]) || Trainer.find_by(email: params[:email])
+        if Trainer.exists?(username: params[:username]) || Trainer.exists?(email: params[:email])
             redirect "/register"
         else
             @trainer = Trainer.create(params)
-            login(@trainer)
-            redirect "/trainers/#{@trainer.id}"
+            if @trainer.valid?
+                login(@trainer)
+                redirect "/trainers/#{@trainer.id}"
+            else
+                redirect "/register"
+            end
         end
     end
 
@@ -30,7 +33,7 @@ class SessionsController < ApplicationController
     end
 
     post '/signin' do
-
+        
     end
 
 end
