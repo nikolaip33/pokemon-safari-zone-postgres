@@ -1,9 +1,9 @@
 <div class="row trainer-info">
     <div class="col-xs-12">
-        @<%= @trainer.username %>
+        <h3>@<%= @trainer.username %>'s Pokémon</h3>
     </div>
 </div>
-
+<hr>
 <div class="row">
 <% @trainer.pokemon.each do |p| %>
     <div class="col-xs-3 poke-grid text-center">
