@@ -7,9 +7,30 @@ class PokedexController < ApplicationController
     end
 
     get '/pokedex/page/:page' do
-        path = "http://pokeapi.co/api/v2/pokemon/#{paginate(params[:page])}"
         @index = index(params[:page])
-        @pokelist = JSON.parse(RestClient.get(path, headers={}))["results"]
+        # path = "http://pokeapi.co/api/v2/pokemon/#{paginate(params[:page])}"
+        # @pokelist = JSON.parse(RestClient.get(path, headers={}))["results"]
+
+        @pokelist = [{"url"=>"https://pokeapi.co/api/v2/pokemon/21/", "name"=>"spearow"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/22/", "name"=>"fearow"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/23/", "name"=>"ekans"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/24/", "name"=>"arbok"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/25/", "name"=>"pikachu"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/26/", "name"=>"raichu"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/27/", "name"=>"sandshrew"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/28/", "name"=>"sandslash"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/29/", "name"=>"nidoran-f"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/30/", "name"=>"nidorina"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/31/", "name"=>"nidoqueen"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/32/", "name"=>"nidoran-m"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/33/", "name"=>"nidorino"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/34/", "name"=>"nidoking"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/35/", "name"=>"clefairy"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/36/", "name"=>"clefable"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/37/", "name"=>"vulpix"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/38/", "name"=>"ninetales"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/39/", "name"=>"jigglypuff"},
+        {"url"=>"https://pokeapi.co/api/v2/pokemon/40/", "name"=>"wigglytuff"}]
         erb :"/pokedex/page"
     end
 
