@@ -27,7 +27,7 @@ class PokemonController < ApplicationController
     end
 
     patch '/pokemon/:id' do
-
+        binding.pry
     end
 
 end

@@ -1,15 +1,26 @@
 <div class="row">
-<form action="/pokemon/<%=@pokemon.id%>">
-<div class="col-xs-6 pokegrid">
+
+<form action="/pokemon/<%=@pokemon.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="name" value="<%=@pokemon.name%>">
+<input type="hidden" name="type_1" value="<%=@pokemon.type_1%>">
+<input type="hidden" name="type_2" value="<%=@pokemon.type_2%>">
+<input type="hidden" name="weight" value="<%=@pokemon.weight%>">
+<input type="hidden" name="height" value="<%=@pokemon.height%>">
+<input type="hidden" name="shiny" value="<%=@pokemon.shiny%>">
+
+<div class="col-sm-6 pokegrid">
     <img class="<%= @pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(@pokemon.pokedex_number)%>.png">
 </div>
-<div class="col-xs-6 poke-bio">
+<div class="col-sm-6 poke-bio">
     <h1><%= @pokemon.name.capitalize %>  <%=PokedexController.img_index(@pokemon.pokedex_number)%></h1>
-    <p>
+    <br>
+    <p class="clearfix">
     Type: <%= @pokemon.type_1.capitalize %><% if @pokemon.type_2 != nil%>, <%= @pokemon.type_2.capitalize %><% end %><br>
     Height: <%= @pokemon.height %><br>
     Weight: <%= @pokemon.weight %><br>
-    Level: <%= @pokemon.level %><br>
+    <span class="level">Level </span>
+    <input class="level-range" type="range" name="level" min="1" max="100" value="<%= @pokemon.level %>" step="1">
     </p>
     <input type="submit" class="btn btn-warning" value="Complete Training">
     
@@ -19,27 +30,32 @@
 <div class="row poke-stats">
 <div class="col-md-4 col-xs-6">
     <h3>Health</h3>
-    <input type="range" name="hp" min="1" max="300">
+    <input type="range" name="hp" min="<%=@base.hp%>" max="<%=(@base.hp+99)*2%>" value="<%= @pokemon.hp %>" step="1">
     <p><%= @pokemon.hp %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Attack</h3>
+    <input type="range" name="attack" min="<%=@base.attack%>" max="<%=(@base.attack+99)*2%>" value="<%= @pokemon.attack %>" step="1">
     <p><%= @pokemon.attack %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Speed</h3>
+    <input type="range" name="speed" min="<%=@base.speed%>" max="<%=(@base.speed+99)*2%>" value="<%= @pokemon.speed %>" step="1">
     <p><%= @pokemon.speed %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Defense</h3>
+    <input type="range" name="defense" min="<%=@base.defense%>" max="<%=(@base.defense+99)*2%>" value="<%= @pokemon.defense %>" step="1">
     <p><%= @pokemon.defense %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Sp. Attack</h3>
+    <input type="range" name="special_attack" min="<%=@base.special_attack%>" max="<%=(@base.special_attack+99)*2%>" value="<%= @pokemon.special_attack %>" step="1">
     <p><%= @pokemon.special_attack %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Sp. Defense</h3>
+    <input type="range" name="special_defense" min="<%=@base.special_defense%>" max="<%=(@base.special_defense+99)*2%>" value="<%= @pokemon.special_defense %>" step="1">
     <p><%= @pokemon.special_defense %></p>
 </div>
 </form>

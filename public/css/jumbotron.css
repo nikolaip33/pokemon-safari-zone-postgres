@@ -24,7 +24,6 @@ img {
 }
 
 .poke-bio .btn {
-  width: 40%;
   margin-bottom: 10px;
 }
 
@@ -58,4 +57,21 @@ img {
 .error-img {
   position: relative;
   margin: auto;
+}
+
+input[type=range] {
+  display: block;
+  width: 80%;
+  margin: auto;
+}
+
+input[type=range].level-range {
+  float:left;
+  max-width: 100px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+span.level {
+  float:left;
 }
