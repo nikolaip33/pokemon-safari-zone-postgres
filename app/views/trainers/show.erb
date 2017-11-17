@@ -4,12 +4,17 @@
     </div>
 </div>
 <hr>
-<div class="row trainer-pokemon">
-    <% @trainer.pokemon.each do |p| %>
-        <div class="col-xs-4">
-        <%= p.name %>
-        </div>
+<div class="row">
+<% @trainer.pokemon.each do |p| %>
+    <div class="col-xs-3 poke-grid text-center">
+        <a href="/pokemon/<%= p.id %>">
+            <div class="inner">
+            <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">
+                <%=p.name.capitalize %><br>Level:<%= p.level %>
+            </div>
+        </a>
+    </div>
 
-    <% end %>
+<% end %>
 
-</div
+</div>
