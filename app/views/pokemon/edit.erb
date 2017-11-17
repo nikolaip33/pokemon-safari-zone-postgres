@@ -1,4 +1,5 @@
 <div class="row">
+<form action="/pokemon/<%=@pokemon.id%>">
 <div class="col-xs-6 pokegrid">
     <img class="<%= @pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(@pokemon.pokedex_number)%>.png">
 </div>
@@ -10,11 +11,7 @@
     Weight: <%= @pokemon.weight %><br>
     Level: <%= @pokemon.level %><br>
     </p>
-        <a href="/pokemon/<%=@pokemon.id%>/edit" class="btn btn-info">Train</a>
-        <form method="post" action="/pokemon/<%= @pokemon.id %>">
-            <input type="hidden" name="_method" value="DELETE">
-            <input class="btn btn-danger" type="submit" value="Release">
-        </form>
+    <input type="submit" class="btn btn-warning" value="Complete Training">
     
 </div>
 </div>
@@ -22,6 +19,7 @@
 <div class="row poke-stats">
 <div class="col-md-4 col-xs-6">
     <h3>Health</h3>
+    <input type="range" name="hp" min="1" max="300">
     <p><%= @pokemon.hp %></p>
 </div>
 <div class="col-md-4 col-xs-6">
@@ -44,4 +42,5 @@
     <h3>Sp. Defense</h3>
     <p><%= @pokemon.special_defense %></p>
 </div>
+</form>
 </div>
