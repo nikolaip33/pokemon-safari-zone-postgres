@@ -24,6 +24,7 @@ class PokedexController < ApplicationController
 
     get '/pokedex/page/:page' do
         @index = index(params[:page])
+        @active = params[:page]
         @pokelist = Pokedex.new(params[:page].to_i).validate
         @navlinks = create_nav(params[:page].to_i)
         erb :"/pokedex/page"
