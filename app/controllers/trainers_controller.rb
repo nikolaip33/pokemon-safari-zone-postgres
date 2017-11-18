@@ -1,7 +1,8 @@
 class TrainersController < ApplicationController
     
     get '/trainers' do
-
+        @trainers = Trainer.all
+        erb :"/trainers/page"
     end
     
     get '/trainers/:id/edit' do

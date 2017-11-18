@@ -12,11 +12,11 @@ body {
 
 .sparkly {
   -webkit-filter: hue-rotate(90deg); /* Safari */
-  filter: hue-rotate(90deg);
+  filter:  invert(100%) hue-rotate(90deg);
 }
 
 .mystery {
-  -webkit-filter: contrast(0%) brightness(50%);  /* Safari 6.0 - 9.0 */
+  -webkit-filter: contrast(0%) brightness(0%);  /* Safari 6.0 - 9.0 */
   filter: contrast(0%) brightness(0%);
 }
 
@@ -102,10 +102,14 @@ span.level {
   float: left;
 }
 
-.btn.release {
+.btn.release, .btn.more-info {
   margin-left: 10px;
 }
 
 .poke-stats .glyphicon {
   font-size: 16px;
+}
+
+.trainer.row h4 {
+  margin-top: 0px;
 }

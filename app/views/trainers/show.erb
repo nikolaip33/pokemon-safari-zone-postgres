@@ -1,6 +1,13 @@
 <div class="row trainer-info">
     <div class="col-xs-12">
-        <h3>@<%= @trainer.username %>'s Pokémon</h3>
+        <h3>@<%= @trainer.username %><a href="/trainer/<%=@trainer.id%>/edit"></a></h3>
+        <%=@trainer.email%>
+        <%if @trainer.pokemon.size >= 10 %>
+        <br>Veteran Trainer
+        <% end %>
+        <%if @trainer.pokemon.size >= 30 %>
+        <br>Elite Trainer
+        <% end %>
     </div>
 </div>
 <hr>
