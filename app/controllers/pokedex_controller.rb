@@ -27,6 +27,7 @@ class PokedexController < ApplicationController
         @index = index(params[:page])
         path = "http://pokeapi.co/api/v2/pokemon/#{paginate(params[:page])}"
         @pokelist = JSON.parse(RestClient.get(path, headers={}))["results"]
+        @navlinks = create_nav(params[:page].to_i)
         erb :"/pokedex/page"
     end
 
@@ -34,7 +35,7 @@ class PokedexController < ApplicationController
 
         def paginate(n)
             offset = (n.to_i-1)*20
-            limit = offset == 240 ? 11 : 20
+            limit = offset == 780 ? 21 : 20
             "?limit=#{limit}&offset=#{offset}"
         end
 
@@ -42,6 +43,45 @@ class PokedexController < ApplicationController
             ((n.to_i-1)*20)+1
         end
 
+        def create_nav(n)
+            a = [] 
+            first = 1
+            last = 40
+            
+            if n <= 5
+              a[0] = first
+              a[1] = 2
+              a[2] = 3
+              a[3] = 4
+              a[4] = 5
+              a[5] = 6
+              a[6] = last-(last)*2/3.ceil
+              a[7] = last-(last)*1/3.ceil
+              a[8] = last
+        
+            elsif n >= last-5
+              a[0] = first
+              a[1] = (n)*1/3.ceil
+              a[2] = (n )*2/3.ceil
+              a[3] = last-5
+              a[4] = last-4
+              a[5] = last-3
+              a[6] = last-2
+              a[7] = last-1
+              a[8] = last
+            else
+              a[0] = first
+              a[1] = (n)*1/3.ceil
+              a[2] = (n)*2/3.ceil
+              a[3] = n-1
+              a[4] = n  
+              a[5] = n+1
+              a[6] = last-(last-n)*2/3.ceil
+              a[7] = last-(last-n)*1/3.ceil
+              a[8] = last
+            end
+            a
+        end
     end
 
     def self.img_index(n)

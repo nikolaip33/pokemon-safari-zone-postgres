@@ -100,3 +100,7 @@ span.level {
 .btn.release {
   margin-left: 10px;
 }
+
+.poke-stats .glyphicon {
+  font-size: 16px;
+}

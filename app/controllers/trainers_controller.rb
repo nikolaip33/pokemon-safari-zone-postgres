@@ -9,7 +9,7 @@ class TrainersController < ApplicationController
     end
 
     get '/trainers/:id' do
-        if logged_in? && current_user.id == params[:id]
+        if logged_in?
             @trainer = current_user
             erb :"/trainers/show"
         else
