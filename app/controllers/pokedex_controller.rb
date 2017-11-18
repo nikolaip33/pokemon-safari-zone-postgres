@@ -4,6 +4,11 @@ class PokedexController < ApplicationController
         redirect "/pokedex/page/1"
     end
 
+    get '/pokedex/catch' do
+        @pokemon = PokemonBase.find_or_create_from_api(rand(1..801))
+        erb :"/pokedex/catch"
+    end
+
     get '/pokedex/:id' do
         redirect "/pokedex/page/#{params[:id]}"
     end
