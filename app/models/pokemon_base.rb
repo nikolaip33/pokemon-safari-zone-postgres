@@ -1,11 +1,29 @@
 class PokemonBase < ActiveRecord::Base
+    
+    WHITELIST = [
+        "ho-oh",
+        "jangmo-o",
+        "hakamo-o",
+        "kommo-o",
+        "tapu-koko",
+        "tapu-lele",
+        "tapu-bulu",
+        "tapu-fini",
+        "type-null",
+        "porygon-z",
+        "mime-jr"
+    ]
 
     def self.create_from_api(id)
         path = "http://pokeapi.co/api/v2/pokemon/#{id}"
         data = JSON.parse(RestClient.get(path, headers={}))
         pokemon = self.create
         pokemon.id = id
-        pokemon.name = data["name"]
+        if WHITELIST.include?(data["name"])
+            pokemon.name = data["name"]
+        else
+            pokemon.name = data["name"].split("-").first
+        end
         pokemon.height = data["height"]
         pokemon.weight = data["weight"]
         pokemon.type_1 = data["types"][0]["type"]["name"]

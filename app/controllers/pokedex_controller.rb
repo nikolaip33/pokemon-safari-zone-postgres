@@ -25,8 +25,7 @@ class PokedexController < ApplicationController
 
     get '/pokedex/page/:page' do
         @index = index(params[:page])
-        path = "http://pokeapi.co/api/v2/pokemon/#{paginate(params[:page])}"
-        @pokelist = JSON.parse(RestClient.get(path, headers={}))["results"]
+        @pokelist = Pokedex.new(params[:page].to_i).validate
         @navlinks = create_nav(params[:page].to_i)
         erb :"/pokedex/page"
     end
