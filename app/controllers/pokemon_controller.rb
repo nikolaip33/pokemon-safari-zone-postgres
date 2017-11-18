@@ -1,5 +1,14 @@
 class PokemonController < ApplicationController
 
+    get '/pokemon' do
+        redirect "/pokemon/page/1"
+    end
+    
+    get '/pokemon/page/:id' do
+        @pokemon_list = Pokemon.limit(20).offset(paginate(params[:id]))
+        binding.pry
+    end
+    
     post '/pokemon' do
         @trainer = Trainer.find_by(id: session[:user_id])
         @pokemon = Pokemon.create_from_base(params[:id])
@@ -21,9 +30,12 @@ class PokemonController < ApplicationController
     end
 
     get '/pokemon/:id' do
-        @pokemon = Pokemon.find_by(id: params[:id])
-        @trainer = @pokemon.trainer
-        erb :"pokemon/show"
+        if @pokemon = Pokemon.find_by(id: params[:id])
+            @trainer = @pokemon.trainer
+            erb :"pokemon/show"
+        else
+            redirect "/pokemon"
+        end
     end
 
     patch '/pokemon/:id' do
@@ -45,6 +57,13 @@ class PokemonController < ApplicationController
             end
         else
             redirect "/sign-in"
+        end
+    end
+
+    helpers do
+        
+        def paginate(n)
+            (n.to_i-1)*20
         end
     end
 
