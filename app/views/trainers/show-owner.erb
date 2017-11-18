@@ -1,14 +1,13 @@
 <div class="row trainer-info">
 <div class="col-xs-12">
-    <h3>@<%= @trainer.username %> <a href="/trainer/<%=@trainer.id%>/edit" class="small"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    <h3>@<%= @trainer.username %><a href="/trainer/<%=@trainer.id%>/edit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </a></h3>
     <%=@trainer.email%>
     <%if @trainer.pokemon.size >= 10 %>
     <br>Veteran Trainer
-    <%elsif @trainer.pokemon.size >= 30 %>
+    <% end %>
+    <%if @trainer.pokemon.size >= 30 %>
     <br>Elite Trainer
-    <%else%>
-    <br>Novice Trainer
     <% end %>
 </div>
 </div>
@@ -19,17 +18,11 @@
     <a href="/pokemon/<%= p.id %>">
         <div class="inner">
         <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">
-            <p><%=p.name.capitalize %><br>Level:<%= p.level %><p>
+            <%=p.name.capitalize %><br>Level:<%= p.level %>
         </div>
     </a>
 </div>
 
 <% end %>
-<div class="col-sm-3 col-xs-6  poke-grid text-center">
-<a href="">
-    <div class="inner">
-        <p>Add<br>Pokemon<p>
-    </div>
-</a>
-</div>
+
 </div>
