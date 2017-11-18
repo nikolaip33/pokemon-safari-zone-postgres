@@ -75,3 +75,22 @@ input[type=range].level-range {
 span.level {
   float:left;
 }
+
+.nav>li>a {
+  color: #fff;
+  font-size: 16px;
+  margin-top:35px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  color:#ccc;
+  background-color: transparent;
+}
+
+.btn.float {
+  float: left;
+}
+
+.btn.release {
+  margin-left: 10px;
+}

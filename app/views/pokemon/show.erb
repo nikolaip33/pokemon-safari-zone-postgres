@@ -11,10 +11,10 @@
     Weight: <%= @pokemon.weight/10.to_f %> kg<br>
     Level: <%= @pokemon.level %><br>
     </p>
-        <a href="/pokemon/<%=@pokemon.id%>/edit" class="btn btn-info">Train</a>
+        <a href="/pokemon/<%=@pokemon.id%>/edit" class="btn btn-info float">Train</a>
         <form method="post" action="/pokemon/<%= @pokemon.id %>">
             <input type="hidden" name="_method" value="DELETE">
-            <input class="btn btn-danger" type="submit" value="Release">
+            <input class="btn btn-danger release" type="submit" value="Release">
         </form>
     
 </div>
