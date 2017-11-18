@@ -6,7 +6,7 @@
 <hr>
 <div class="row">
 <% @trainer.pokemon.each do |p| %>
-    <div class="col-xs-3 poke-grid text-center">
+    <div class="col-sm-3 col-xs-6  poke-grid text-center">
         <a href="/pokemon/<%= p.id %>">
             <div class="inner">
             <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">

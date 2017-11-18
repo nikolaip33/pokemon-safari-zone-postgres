@@ -34,32 +34,32 @@
 <div class="col-md-4 col-xs-6">
     <h3>Health</h3>
     <input type="range" name="p[hp]" min="1" max="<%=(@base.hp+99)*2%>" value="<%= @pokemon.hp %>" step="1">
-    <p><%= @pokemon.hp %></p>
+    <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= @pokemon.hp %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Attack</h3>
     <input type="range" name="p[attack]" min="1" max="<%=(@base.attack+99)*2%>" value="<%= @pokemon.attack %>" step="1">
-    <p><%= @pokemon.attack %></p>
+    <p><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> <%= @pokemon.attack %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Speed</h3>
     <input type="range" name="p[speed]" min="1" max="<%=(@base.speed+99)*2%>" value="<%= @pokemon.speed %>" step="1">
-    <p><%= @pokemon.speed %></p>
+    <p><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> <%= @pokemon.speed %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Defense</h3>
     <input type="range" name="p[defense]" min="1" max="<%=(@base.defense+99)*2%>" value="<%= @pokemon.defense %>" step="1">
-    <p><%= @pokemon.defense %></p>
+    <p><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> <%= @pokemon.defense %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Sp. Attack</h3>
     <input type="range" name="p[special_attack]" min="1" max="<%=(@base.special_attack+99)*2%>" value="<%= @pokemon.special_attack %>" step="1">
-    <p><%= @pokemon.special_attack %></p>
+    <p><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> <%= @pokemon.special_attack %></p>
 </div>
 <div class="col-md-4 col-xs-6">
     <h3>Sp. Defense</h3>
     <input type="range" name="p[special_defense]" min="1" max="<%=(@base.special_defense+99)*2%>" value="<%= @pokemon.special_defense %>" step="1">
-    <p><%= @pokemon.special_defense %></p>
+    <p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= @pokemon.special_defense %></p>
 </div>
 </form>
 </div>
