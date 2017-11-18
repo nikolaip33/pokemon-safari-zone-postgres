@@ -15,8 +15,7 @@ class PokedexController < ApplicationController
 
     post '/pokedex/pokemon/:id' do
         if logged_in?
-            @pokemon = Pokemon.create_from_base(params[:id])
-            current_user.pokemon << @pokemon
+            @pokemon = Pokemon.create_from_base(params[:id], current_user)
             redirect "/pokemon/#{@pokemon.id}"
         else
             redirect "/sign-in"
@@ -31,12 +30,6 @@ class PokedexController < ApplicationController
     end
 
     helpers do
-
-        def paginate(n)
-            offset = (n.to_i-1)*20
-            limit = offset == 780 ? 21 : 20
-            "?limit=#{limit}&offset=#{offset}"
-        end
 
         def index(n)
             ((n.to_i-1)*20)+1
