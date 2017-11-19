@@ -1,9 +1,9 @@
+<div class="row trainer">
 <% @trainers.each do |trainer| %>
     <% if pokemon = trainer.pokemon[-1] %>
-        <hr>
-        <div class="row trainer">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 pokegrid trainer-last">
-                <img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(pokemon.pokedex_number)%>.png"> 
+
+            <div class="col-xs-12 col-sm-6 pokegrid trainer-last">
+                <img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(pokemon.pokedex_number)%>.png"> 
 
                 <a href="/trainers/<%=trainer.id%>"><h4>@<%=trainer.username%></h4></a>
                 <%=trainer.email%>
@@ -11,7 +11,9 @@
                 Pokemon Caught: <%= trainer.pokemon.size %>
                 <br>
                 Last Pokemon: <%= pokemon.name.capitalize %>
-            </div>
+                <hr>
+            
         </div>
     <% end %>
 <% end %>
+</div>

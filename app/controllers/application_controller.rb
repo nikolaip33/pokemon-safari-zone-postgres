@@ -40,3 +40,19 @@ class ApplicationController < Sinatra::Base
   end
 
 end
+
+def paginate(n)
+  offset = (n.to_i-1)*20
+  limit = offset == 780 ? 21 : 20
+  "?limit=#{limit}&offset=#{offset}"
+end
+
+def img_index(n)
+  if n.to_i < 10
+      "00#{n}"
+  elsif n.to_i < 100
+      "0#{n}"
+  else
+      n.to_s
+  end
+end

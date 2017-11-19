@@ -17,7 +17,7 @@
 <div class="col-sm-3 col-xs-6  poke-grid text-center">
     <a href="/pokemon/<%= p.id %>">
         <div class="inner">
-        <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">
+        <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(p.pokedex_number)%>.png">
             <%=p.name.capitalize %><br>Level:<%= p.level %>
         </div>
     </a>

@@ -161,6 +161,9 @@ span.level {
     padding: 10px 10px;
   }
 
+  .pagination>li>a, .pagination>li>span {
+    padding: 3px 9px;
+  }
  
 
 }

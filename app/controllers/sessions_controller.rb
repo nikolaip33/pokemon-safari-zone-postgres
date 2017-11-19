@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
         if logged_in?
             redirect "/trainers/#{current_user.id}"
         else
-            redirect "/register"
+            redirect "/sign-in"
         end
     end
 

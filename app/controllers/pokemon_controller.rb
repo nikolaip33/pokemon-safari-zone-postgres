@@ -8,12 +8,6 @@ class PokemonController < ApplicationController
         @pokemon_list = Pokemon.limit(20).offset(paginate(params[:id]))
         binding.pry
     end
-    
-    post '/pokemon' do
-        @trainer = Trainer.find_by(id: session[:user_id])
-        @pokemon = Pokemon.create_from_base(params[:id])
-        redirect "/pokemon/#{@pokemon.id}"
-    end
 
     get '/pokemon/:id/edit' do
         if logged_in?
@@ -41,6 +35,8 @@ class PokemonController < ApplicationController
     patch '/pokemon/:id' do
         if logged_in?
             if @pokemon = current_user.pokemon.find_by(id: params[:id])
+                
+                binding.pry
                 @pokemon.update(params[:p])
                 redirect "/pokemon/#{@pokemon.id}"
             end

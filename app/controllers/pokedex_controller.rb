@@ -82,14 +82,4 @@ class PokedexController < ApplicationController
         end
     end
 
-    def self.img_index(n)
-        if n.to_i < 10
-            "00#{n}"
-        elsif n.to_i < 100
-            "0#{n}"
-        else
-            n.to_s
-        end
-    end
-
 end

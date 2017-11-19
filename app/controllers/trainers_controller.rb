@@ -13,8 +13,7 @@ class TrainersController < ApplicationController
         if @trainer = Trainer.find_by(id: params[:id])
             
             if logged_in? && current_user == @trainer
-                binding.pry
-                erb :"/trainers/show-owner"
+                erb :"/trainers/show_owner"
             else
                 erb :"/trainers/show"
             end

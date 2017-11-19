@@ -43,11 +43,4 @@ class PokemonBase < ActiveRecord::Base
         find_by(id: id.to_i) || create_from_api(id)
     end
 
-    def self.relevel
-        self.all.each do |p|
-            p.level = rand(3..9)
-            p.save
-        end
-    end
-
 end
