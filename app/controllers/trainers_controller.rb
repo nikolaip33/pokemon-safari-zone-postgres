@@ -10,16 +10,17 @@ class TrainersController < ApplicationController
     end
 
     get '/trainers/:id' do
-        if logged_in?
-            @trainer = current_user
-            erb :"/trainers/show"
+        if @trainer = Trainer.find_by(id: params[:id])
+            
+            if logged_in? && current_user == @trainer
+                binding.pry
+                erb :"/trainers/show-owner"
+            else
+                erb :"/trainers/show"
+            end
         else
-            redirect "/sign-in"
+            redirect "/trainers"
         end
-    end
-
-    post '/trainers/:id' do
-
     end
 
     patch '/trainers/:id' do

@@ -114,6 +114,21 @@ span.level {
   margin-top: 0px;
 }
 
+.trainer-last img {
+  max-width: 95px;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.trainer-info .small, .home-box .small {
+  color: #000;
+}
+
+.register-btn {
+  margin-left:10px;
+}
+
 @media (max-width: 767px) {
   .poke-bio {
     display: inline-block;
@@ -146,7 +161,6 @@ span.level {
     padding: 10px 10px;
   }
 
-  . img {
-    max-width: 275px;
-  }
+ 
+
 }

@@ -34,13 +34,20 @@ class PokemonBase < ActiveRecord::Base
         pokemon.defense = data["stats"][3]["base_stat"]
         pokemon.attack = data["stats"][4]["base_stat"]
         pokemon.hp = data["stats"][5]["base_stat"]
-        pokemon.level = rand(1..9)
+        pokemon.level = rand(3..9)
         pokemon.save
         pokemon
     end
 
     def self.find_or_create_from_api(id)
         find_by(id: id.to_i) || create_from_api(id)
+    end
+
+    def self.relevel
+        self.all.each do |p|
+            p.level = rand(3..9)
+            p.save
+        end
     end
 
 end

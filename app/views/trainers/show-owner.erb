@@ -1,7 +1,7 @@
 <div class="row trainer-info">
 <div class="col-xs-12">
-    <h3>@<%= @trainer.username %><a href="/trainer/<%=@trainer.id%>/edit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </a></h3>
+    <h3>@<%= @trainer.username %> <a href="/trainer/<%=@trainer.id%>/edit"><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span>
+</a></h3>
     <%=@trainer.email%>
     <%if @trainer.pokemon.size >= 10 %>
     <br>Veteran Trainer

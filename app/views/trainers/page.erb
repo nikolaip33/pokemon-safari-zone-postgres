@@ -2,12 +2,9 @@
     <% if pokemon = trainer.pokemon[-1] %>
         <hr>
         <div class="row trainer">
-            <div class="col-sm-2 col-sm-offset-1 pokegrid">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 pokegrid trainer-last">
                 <img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(pokemon.pokedex_number)%>.png"> 
-            </div>
 
-
-            <div class="col-sm-8 pokegrid">
                 <a href="/trainers/<%=trainer.id%>"><h4>@<%=trainer.username%></h4></a>
                 <%=trainer.email%>
                 <br>
