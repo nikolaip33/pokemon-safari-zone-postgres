@@ -113,3 +113,40 @@ span.level {
 .trainer.row h4 {
   margin-top: 0px;
 }
+
+@media (max-width: 767px) {
+  .poke-bio {
+    display: inline-block;
+  }
+
+  .poke-row {
+    text-align:center;
+  }
+
+  .poke-row img {
+    max-width: 275px;
+  }
+
+  .btn.float {
+    float:none;
+  }
+  
+  .btn.release, .btn.more-info {
+    margin-left: 0;
+  }
+
+  .navbar-brand>img {
+    display: block;
+    max-width:150px;
+  }
+
+  .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+  }
+
+  . img {
+    max-width: 275px;
+  }
+}

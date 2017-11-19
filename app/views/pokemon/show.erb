@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row poke-row">
     <div class="col-sm-6 pokegrid">
         <img class="<%= @pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(@pokemon.pokedex_number)%>.png">
     </div>
-    <div class="col-sm-6 poke-bio">
+    <div class="col-sm-6 poke-bio text-xs-center">
         <h1><small>@<%= @trainer.username %>'s</small><br>
         <%= @pokemon.name.capitalize %></h1><br>
         <p>
