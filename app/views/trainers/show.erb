@@ -14,22 +14,15 @@
 </div>
 <hr>
 <div class="row">
-<% @trainer.pokemon.each do |p| %>
-<div class="col-sm-3 col-xs-6  poke-grid text-center">
-    <a href="/pokemon/<%= p.id %>">
-        <div class="inner">
-        <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">
-            <p><%=p.name.capitalize %><br>Level:<%= p.level %><p>
-        </div>
-    </a>
-</div>
-
-<% end %>
-<div class="col-sm-3 col-xs-6  poke-grid text-center">
-<a href="">
-    <div class="inner">
-        <p>Add<br>Pokemon<p>
+    <% @trainer.pokemon.each do |p| %>
+    <div class="col-sm-3 col-xs-6  poke-grid text-center">
+        <a href="/pokemon/<%= p.id %>">
+            <div class="inner">
+            <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=PokedexController.img_index(p.pokedex_number)%>.png">
+                <p><%=p.name.capitalize %><br>Level:<%= p.level %><p>
+            </div>
+        </a>
     </div>
-</a>
-</div>
+
+    <% end %>
 </div>

@@ -34,7 +34,7 @@ class PokemonBase < ActiveRecord::Base
         pokemon.defense = data["stats"][3]["base_stat"]
         pokemon.attack = data["stats"][4]["base_stat"]
         pokemon.hp = data["stats"][5]["base_stat"]
-        pokemon.level = 1
+        pokemon.level = rand(1..9)
         pokemon.save
         pokemon
     end
