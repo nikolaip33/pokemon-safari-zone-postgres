@@ -13,7 +13,8 @@ class Pokedex
         "tapu-fini",
         "type-null",
         "porygon-z",
-        "mime-jr"
+        "mime-jr",
+        "mr-mime"
     ]
 
     def initialize(page)

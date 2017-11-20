@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             redirect "/register"
         else
             params[:candy] = 5000
-            porams[:pokeballs] = 5
+            params[:pokeballs] = 5
             @trainer = Trainer.create(params)
             if @trainer.valid?
                 login(@trainer)
