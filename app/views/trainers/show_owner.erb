@@ -4,11 +4,10 @@
 </a></h3>
     <strong>Candy: <%=@trainer.candy%><br></strong>
     <%=@trainer.email%>
-    <%if @trainer.pokemon.size >= 10 %>
-    <br>Veteran Trainer
-    <% end %>
     <%if @trainer.pokemon.size >= 30 %>
     <br>Elite Trainer
+    <%elsif @trainer.pokemon.size >= 10 %>
+    <br>Veteran Trainer
     <%else%>
     <br>Novice Trainer
     <% end %>

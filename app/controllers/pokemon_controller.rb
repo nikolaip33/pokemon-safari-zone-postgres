@@ -13,11 +13,11 @@ class PokemonController < ApplicationController
         if logged_in?
             if @pokemon = current_user.pokemon.find_by(id: params[:id])
                 @base = PokemonBase.find_by(id: @pokemon.pokedex_number)
-                @trainer = @pokemon.trainer
+                @trainer = current_user
                 erb :"pokemon/edit"
+            else
+                redirect "/trainers/current_user.id"
             end
-        elsif logged_in?
-            redirect "/trainers/current_user.id"
         else
             redirect "/sign-in"
         end
@@ -35,10 +35,15 @@ class PokemonController < ApplicationController
     patch '/pokemon/:id' do
         if logged_in?
             if @pokemon = current_user.pokemon.find_by(id: params[:id])
-                
-                binding.pry
-                @pokemon.update(params[:p])
-                redirect "/pokemon/#{@pokemon.id}"
+                if @pokemon.valid_edit?(params[:p], current_user)
+                    new_candy = current_user.candy - @pokemon.edit_cost(params[:p])
+                    current_user.update_attribute(:candy, new_candy)
+                    @pokemon.update(params[:p])
+                    redirect "/pokemon/#{@pokemon.id}"
+                else
+                    flash[:notice] = "Not Enough Candy."
+                    redirect "/pokemon/#{@pokemon.id}"
+                end
             end
         else
             redirect "/sign-in"

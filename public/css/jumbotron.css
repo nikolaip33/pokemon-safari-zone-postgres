@@ -148,6 +148,25 @@ span.level {
   padding: 0px 25px;
 }
 
+.rotate {
+  
+  /* Safari */
+  -webkit-transform: rotate(90deg);
+  
+  /* Firefox */
+  -moz-transform: rotate(90deg);
+  
+  /* IE */
+  -ms-transform: rotate(90deg);
+  
+  /* Opera */
+  -o-transform: rotate(90deg);
+  
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  
+  }
+
 @media (max-width: 767px) {
   .poke-bio {
     display: inline-block;

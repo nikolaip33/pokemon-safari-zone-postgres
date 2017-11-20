@@ -57,7 +57,7 @@ class PokedexController < ApplicationController
               a[7] = last-(last)*1/3.ceil
               a[8] = last
         
-            elsif n >= last-5
+            elsif n >= last-4
               a[0] = first
               a[1] = (n)*1/3.ceil
               a[2] = (n )*2/3.ceil
