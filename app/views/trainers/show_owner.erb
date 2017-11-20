@@ -2,7 +2,6 @@
 <div class="col-xs-12">
     <h3>@<%= @trainer.username %> <a href="/trainers/<%=@trainer.id%>/edit"><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span>
 </a></h3>
-    <strong>Candy: <%=@trainer.candy%><br></strong>
     <%=@trainer.email%>
     <%if @trainer.pokemon.size >= 30 %>
     <br>Elite Trainer

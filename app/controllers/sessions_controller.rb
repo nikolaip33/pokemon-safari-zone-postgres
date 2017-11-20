@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             redirect "/register"
         else
             params[:candy] = 5000
-            binding.pry
+            porams[:pokeballs] = 5
             @trainer = Trainer.create(params)
             if @trainer.valid?
                 login(@trainer)
@@ -37,8 +37,10 @@ class SessionsController < ApplicationController
         if @trainer && @trainer.authenticate(params[:password])
             login(@trainer)
             @trainer.add_candy
+            @trainer.add_pokeballs
             redirect "/trainers/#{@trainer.id}"
         else
+            flash[:notice] = "Incorrect Sign In Information."
             redirect '/sign-in'
         end
     end

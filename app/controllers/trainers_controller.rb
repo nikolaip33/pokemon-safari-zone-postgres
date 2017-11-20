@@ -15,10 +15,8 @@ class TrainersController < ApplicationController
             
             if logged_in? && current_user == @trainer
                 if @trainer.pokemon.length == 0
-                    
                     erb :"/trainers/show_new"
                 else
-                    flash.now[:notice] = "Hooray, Flash is working!"
                     erb :"/trainers/show_owner"
                 end
             else

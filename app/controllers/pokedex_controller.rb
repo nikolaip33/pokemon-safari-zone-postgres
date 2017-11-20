@@ -20,8 +20,14 @@ class PokedexController < ApplicationController
 
     post '/pokedex/pokemon/:id' do
         if logged_in?
-            @pokemon = Pokemon.create_from_base(params[:id], current_user)
-            redirect "/pokemon/#{@pokemon.id}"
+            if current_user.pokeballs > 0
+                current_user.update_attribute(:pokeballs, current_user.pokeballs - 1)
+                @pokemon = Pokemon.create_from_base(params[:id], current_user)
+                redirect "/pokemon/#{@pokemon.id}"
+            else
+                flash[:notice] = "You don't have any Pokéballs"
+                redirect "/pokedex/pokemon/#{@pokemon.id}"
+            end
         else
             redirect "/sign-in"
         end
