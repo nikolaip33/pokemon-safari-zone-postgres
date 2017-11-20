@@ -1,0 +1,61 @@
+<hr>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <h4>Edit your information.</h4>
+        <form method="post" action="/trainers/<%=@trainer.id%>">
+            <input type="hidden" name="_method" value="patch">
+            <label for="username">Username:</label><br>
+            <div class="input-group">
+                
+                <span class="input-group-addon glyphicon glyphicon-user"></span>
+                <input type="text" class="form-control" placeholder="<%=@trainer.username%>" name="username" id="username">
+            </div>
+
+            <label for="email">Email:</label><br>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+                <input type="email" class="form-control" placeholder="<%=@trainer.email%>" name="email" id="email">
+            </div>
+
+            <label for="password">Password:</label><br>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                <input type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" id="password">
+            </div>
+
+            <label for="first-name">First Name:</label><br>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-star"></span>
+                <%if @trainer.first_name%>
+                <input type="text" class="form-control" placeholder="<%=@trainer.first_name%>" name="first_name" id="first-name">
+                <%else%>
+                <input type="text" class="form-control" placeholder="First Name" name="first_name" id="first-name">
+                <%end%>
+            </div>
+
+            <label for="last-name">Last Name:</label><br>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-star"></span>
+                <%if @trainer.last_name%>
+                <input type="text" class="form-control" placeholder="<%=@trainer.last_name%>" name="last_name" id="last-name">
+                <%else%>
+                <input type="text" class="form-control" placeholder="Last Name" name="last_name" id="last-name">
+                <%end%>
+            </div>
+
+            <label for="age">Age:</label><br>
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-star"></span>
+                <%if @trainer.age%>
+                <input type="text" class="form-control" placeholder="<%=@trainer.age%>" name="age" id="age">
+                <%else%>
+                <input type="text" class="form-control" placeholder="Age" name="age" id="age">
+                <%end%>
+            </div>
+
+            <div class="input-group">
+                <input type="submit" class="btn btn-warning" value="Update &raquo;"><a class="btn btn-danger btn-md register-btn" href="/trainers/<%=@trainer.id%>/delete">Delete Account &raquo;</a>
+            </div>
+        </form>
+    </div>
+</div>

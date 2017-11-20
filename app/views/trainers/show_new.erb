@@ -16,16 +16,10 @@
 </div>
 <hr>
 <div class="row">
-<% @trainer.pokemon.each do |p| %>
-<div class="col-sm-3 col-xs-6  poke-grid text-center">
-    <a href="/pokemon/<%= p.id %>">
-        <div class="inner">
-        <img class="<%= p.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(p.pokedex_number)%>.png">
-            <%=p.name.capitalize %><br>Level:<%= p.level %>
-        </div>
-    </a>
-</div>
-
-<% end %>
-
+    <div class="col-xs-12">
+        <p>You don't seem to have any pokemon yet.</p>
+        <p>Not worry, by signing up you're already well on your way to becoming an Elite Trainer!</p>
+        <p><a href="/pokedex">Visit the pokedex</a> to see our amazing collection.</p>
+        <p><a href="/safari">Enter our Safari Zone</a> and encounter a random pokemon, if you're feeling for adventurous!
+    </div>
 </div>

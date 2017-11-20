@@ -1,4 +1,5 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -7,7 +8,8 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "password_security"
-
+    register Sinatra::Flash
+    
   end
 
   get "/" do
@@ -39,12 +41,6 @@ class ApplicationController < Sinatra::Base
 
   end
 
-end
-
-def paginate(n)
-  offset = (n.to_i-1)*20
-  limit = offset == 780 ? 21 : 20
-  "?limit=#{limit}&offset=#{offset}"
 end
 
 def img_index(n)

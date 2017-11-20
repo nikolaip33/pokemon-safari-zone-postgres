@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
         if Trainer.exists?(username: params[:username]) || Trainer.exists?(email: params[:email])
             redirect "/register"
         else
+            params[:candy] = 5000
+            binding.pry
             @trainer = Trainer.create(params)
             if @trainer.valid?
                 login(@trainer)
@@ -34,6 +36,7 @@ class SessionsController < ApplicationController
         @trainer = Trainer.find_by(username: params[:username])
         if @trainer && @trainer.authenticate(params[:password])
             login(@trainer)
+            @trainer.add_candy
             redirect "/trainers/#{@trainer.id}"
         else
             redirect '/sign-in'
