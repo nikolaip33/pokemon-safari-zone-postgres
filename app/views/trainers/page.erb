@@ -3,14 +3,14 @@
     <% if pokemon = trainer.pokemon[-1] %>
 
             <div class="col-xs-12 col-sm-6 pokegrid trainer-last">
-                <img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(pokemon.pokedex_number)%>.png"> 
+                <a href="/trainers/<%=trainer.id%>"><img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(pokemon.pokedex_number)%>.png"></a>
 
-                <a href="/trainers/<%=trainer.id%>"><h4>@<%=trainer.username%></h4></a>
+                <h4><a href="/trainers/<%=trainer.id%>">@<%=trainer.username%></a></h4>
                 <%=trainer.email%>
                 <br>
                 Pokemon Caught: <%= trainer.pokemon.size %>
                 <br>
-                Last Pokemon: <%= pokemon.name.capitalize %>
+                Last Pokemon: <a href="/pokemon/<%=pokemon.id%>"><%= pokemon.name.capitalize %></a>
                 <hr>
             
         </div>

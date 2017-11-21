@@ -1,6 +1,6 @@
 class Trainer < ActiveRecord::Base
     has_secure_password
-    has_many :pokemon
+    has_many :pokemon, dependent: :destroy
     validates :username, presence: true, uniqueness: { case_sensitive: false }
     validates :email, presence: true, uniqueness: { case_sensitive: false }
     validates :password, presence: true,  :if => :password

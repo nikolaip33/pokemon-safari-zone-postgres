@@ -2,6 +2,7 @@
 <div class="col-xs-12">
     <h3>@<%= @trainer.username %></h3>
     <%=@trainer.email%>
+    <br>Pokemon Caught: <%= @trainer.pokemon.size %>
     <%if @trainer.pokemon.size >= 30 %>
     <br>Elite Trainer
     <%elsif @trainer.pokemon.size >= 10 %>

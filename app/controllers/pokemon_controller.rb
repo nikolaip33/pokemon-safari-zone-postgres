@@ -41,7 +41,7 @@ class PokemonController < ApplicationController
                     flash[:success] = "Success! Training Session completed."
                     redirect "/pokemon/#{@pokemon.id}"
                 else
-                    flash[:danger] = "Failure! You don't not have enough Candy to complete this Training Session."
+                    flash[:danger] = "Failure! You do not have enough Candy to complete this Training Session."
                     redirect "/pokemon/#{@pokemon.id}"
                 end
             end

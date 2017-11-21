@@ -6,7 +6,7 @@ class Pokemon < ActiveRecord::Base
     def self.create_from_base(id, trainer)
         data = PokemonBase.find_by(id: id.to_i).as_json
         data["pokedex_number"] = data.delete("id")
-        data["shiny"] = "shiny" if rand(1..10) > 9
+        data["shiny"] = "shiny" if rand(1..10) == 10
         pokemon = trainer.pokemon.create(data)
     end
 

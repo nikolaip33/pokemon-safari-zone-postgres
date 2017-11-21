@@ -3,6 +3,7 @@
     <h3>@<%= @trainer.username %> <a href="/trainers/<%=@trainer.id%>/edit"><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span>
 </a></h3>
     <%=@trainer.email%>
+    <br>Pokemon Caught: <%= @trainer.pokemon.size %>
     <%if @trainer.pokemon.size >= 30 %>
     <br>Elite Trainer
     <%elsif @trainer.pokemon.size >= 10 %>
