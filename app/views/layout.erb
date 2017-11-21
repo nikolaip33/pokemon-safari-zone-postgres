@@ -31,7 +31,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="<%=current_user.username if current_user%>">
 
     <nav class="navbar-inverse navbar  navbar-fixed-top">
       <div class="container">
@@ -50,7 +50,7 @@
   <div class="container">
   <div class="row">
   <div class="col-xs-12">
-  <span class="glyphicon glyphicon-adjust rotate" aria-hidden="true"></span> <%= @current_user.pokeballs %>&nbsp;
+  <span class="glyphicon glyphicon-adjust rotate" aria-hidden="true"></span> <%= @current_user.pokeballs.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %>&nbsp;
   <span class="glyphicon glyphicon-gift" aria-hidden="true"></span> <%= @current_user.candy.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %>
   </div>
   </div>

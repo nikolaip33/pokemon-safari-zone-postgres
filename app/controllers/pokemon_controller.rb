@@ -1,14 +1,5 @@
 class PokemonController < ApplicationController
 
-    get '/pokemon' do
-        redirect "/pokemon/page/1"
-    end
-    
-    get '/pokemon/page/:id' do
-        @pokemon_list = Pokemon.limit(20).offset(paginate(params[:id]))
-        binding.pry
-    end
-
     get '/pokemon/:id/edit' do
         if logged_in?
             if @pokemon = current_user.pokemon.find_by(id: params[:id])
@@ -25,10 +16,15 @@ class PokemonController < ApplicationController
 
     get '/pokemon/:id' do
         if @pokemon = Pokemon.find_by(id: params[:id])
-            @trainer = @pokemon.trainer
-            erb :"pokemon/show"
+            if logged_in? && current_user.pokemon.find_by(id: params[:id])
+                @trainer = current_user
+                erb :"pokemon/show_owner"
+            else
+                @trainer = @pokemon.trainer
+                erb :"pokemon/show"
+            end
         else
-            redirect "/pokemon"
+            redirect "/trainers"
         end
     end
 

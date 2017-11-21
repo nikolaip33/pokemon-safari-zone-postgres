@@ -9,17 +9,33 @@ body {
   margin-top: 20px;
 }
 
+.rocket .shiny {
+  -webkit-filter: invert(0%); /* Safari */
+  filter: invert(0%);
+}
+
 .shiny {
   -webkit-filter: invert(100%); /* Safari */
   filter: invert(100%);
 }
 
-.sparkly {
+.rocket {
   -webkit-filter: hue-rotate(90deg); /* Safari */
-  filter:  invert(100%) hue-rotate(90deg);
+  filter:  invert(100%);
+  background-color: #000;
+}
+
+.rocket img {
+  -webkit-filter: invert(100%); /* Safari */
+  filter: invert(100%);
 }
 
 .mystery {
+  -webkit-filter: contrast(0%) brightness(0%);  /* Safari 6.0 - 9.0 */
+  filter: contrast(0%) brightness(0%);
+}
+
+.rocket .mystery {
   -webkit-filter: contrast(0%) brightness(0%);  /* Safari 6.0 - 9.0 */
   filter: contrast(0%) brightness(0%);
 }
@@ -165,6 +181,10 @@ span.level {
   /* Internet Explorer */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   
+  }
+
+  .delete-trainer-form {
+    display: inline-block;
   }
 
 @media (max-width: 767px) {

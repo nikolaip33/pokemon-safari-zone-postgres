@@ -1,7 +1,7 @@
 <hr>
 <div class="row">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <h4>Edit your information.</h4>
+        <h4>Edit your information</h4>
         <form method="post" action="/trainers/<%=@trainer.id%>">
             <input type="hidden" name="_method" value="patch">
             <label for="username">Username:</label><br>
@@ -54,8 +54,13 @@
             </div>
 
             <div class="input-group">
-                <input type="submit" class="btn btn-warning" value="Update &raquo;"><a class="btn btn-danger btn-md register-btn" href="/trainers/<%=@trainer.id%>/delete">Delete Account &raquo;</a>
-            </div>
+                <input type="submit" class="btn btn-warning" value="Update &raquo;">
         </form>
+   
+        <form action="/trainers/<%=@trainer.id%>" method="post" class="delete-trainer-form">
+        <input type="hidden" name="_method" value="delete">
+        <input class="btn btn-danger btn-md register-btn" type="submit" value="Delete Account &raquo;">
+      </form>
+      </div>
     </div>
 </div>

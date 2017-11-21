@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "password_security"
     register Sinatra::Flash
-    
+
   end
 
   get "/" do
@@ -28,6 +28,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @current_user ||= Trainer.find_by(id: session[:user_id]) if session[:user_id]
+    end
+
+    def current_pokemon
+      @current_pokemon ||= current_user.pokemon
     end
 
     def login(user)
