@@ -14,8 +14,13 @@ class PokedexController < ApplicationController
     end
 
     get '/pokedex/pokemon/:id' do
-        @pokemon = PokemonBase.find_or_create_from_api(params[:id])
-        erb :"/pokedex/show"
+        if !params[:id].to_i.between?(1,801)
+            flash[:danger] = "Failure! We could not find that Pokédex Entry."
+            redirect "/pokedex/page/1"
+        else
+            @pokemon = PokemonBase.find_or_create_from_api(params[:id])
+            erb :"/pokedex/show"
+        end
     end
 
     post '/pokedex/pokemon/:id' do
@@ -35,11 +40,19 @@ class PokedexController < ApplicationController
     end
 
     get '/pokedex/page/:page' do
-        @index = index(params[:page])
-        @active = params[:page]
-        @pokelist = Pokedex.new(params[:page].to_i).validate
-        @navlinks = create_nav(params[:page].to_i)
-        erb :"/pokedex/page"
+        if params[:page].to_i.between?(1,40)
+            @index = index(params[:page])
+            @active = params[:page]
+            @pokelist = Pokedex.new(params[:page].to_i).validate
+            @navlinks = create_nav(params[:page].to_i)
+            erb :"/pokedex/page"
+        elsif params[:page].to_i <= 0
+            redirect "/pokedex/page/1"
+        elsif params[:page].to_i >= 40
+            redirect "/pokedex/page/40"
+        else
+            redirect "/pokedex/page/1"
+        end
     end
 
     helpers do

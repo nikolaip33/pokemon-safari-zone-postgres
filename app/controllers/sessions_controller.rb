@@ -8,28 +8,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    # post '/register' do
-    #     if Trainer.exists?(username: params[:username])
-    #         flash[:danger] = "Failure! That username is already taken."
-    #         redirect "/register"
-    #     elsif Trainer.exists?(email: params[:email])
-    #         flash[:danger] = "Failure! An account with that email already exists."
-    #         redirect "/register"
-    #     else
-    #         params[:candy] = 5000
-    #         params[:pokeballs] = 5
-    #         @trainer = Trainer.create(params)
-    #         if @trainer.valid?
-    #             login(@trainer)
-    #             flash[:success] = "Success! Account successfully created."
-    #             redirect "/trainers/#{@trainer.id}"
-    #         else
-    #             flash[:danger] = "Failure! Account could not be created."
-    #             redirect "/register"
-    #         end
-    #     end
-    # end
-
     post '/register' do
         params[:candy] = 5000
         params[:pokeballs] = 5
