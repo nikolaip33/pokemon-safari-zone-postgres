@@ -187,6 +187,15 @@ span.level {
     display: inline-block;
   }
 
+  .flash-msg {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .flash-msg.ok {
+    color: #5cb85c;
+  }
+
 @media (max-width: 767px) {
   .poke-bio {
     display: inline-block;

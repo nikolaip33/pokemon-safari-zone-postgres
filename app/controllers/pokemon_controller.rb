@@ -7,9 +7,11 @@ class PokemonController < ApplicationController
                 @trainer = current_user
                 erb :"pokemon/edit"
             else
-                redirect "/trainers/current_user.id"
+                flash[:danger] = "Failure! Your are not the trainer for this pokémon."
+                redirect "/pokemon/#{:id}"
             end
         else
+            flash[:danger] = "Failure! You are not logged in."
             redirect "/sign-in"
         end
     end
@@ -24,6 +26,7 @@ class PokemonController < ApplicationController
                 erb :"pokemon/show"
             end
         else
+            flash[:danger] = "Failure! No record found for this pokémon."
             redirect "/trainers"
         end
     end
@@ -35,9 +38,10 @@ class PokemonController < ApplicationController
                     new_candy = current_user.candy - @pokemon.edit_cost(params[:p])
                     current_user.update_attribute(:candy, new_candy)
                     @pokemon.update(params[:p])
+                    flash[:success] = "Success! Training Session completed."
                     redirect "/pokemon/#{@pokemon.id}"
                 else
-                    flash[:notice] = "Not Enough Candy."
+                    flash[:danger] = "Failure! You don't not have enough Candy to complete this Training Session."
                     redirect "/pokemon/#{@pokemon.id}"
                 end
             end

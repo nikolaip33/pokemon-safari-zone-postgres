@@ -2,13 +2,6 @@
 
 <form action="/pokemon/<%=@pokemon.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
-<input type="hidden" name="p[name]" value="<%=@pokemon.name%>">
-<input type="hidden" name="p[type_1]" value="<%=@pokemon.type_1%>">
-<%if @pokemon.type_2 != nil %>
-<input type="hidden" name="p[type_2]" value="<%=@pokemon.type_2%>">
-<% end %>
-<input type="hidden" name="p[weight]" value="<%=@pokemon.weight%>">
-<input type="hidden" name="p[height]" value="<%=@pokemon.height%>">
 <input type="hidden" name="p[shiny]" value="<%=@pokemon.shiny%>">
 
 <div class="col-sm-6 pokegrid">

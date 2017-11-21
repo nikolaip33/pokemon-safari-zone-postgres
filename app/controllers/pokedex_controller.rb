@@ -23,10 +23,11 @@ class PokedexController < ApplicationController
             if current_user.pokeballs > 0
                 current_user.update_attribute(:pokeballs, current_user.pokeballs - 1)
                 @pokemon = Pokemon.create_from_base(params[:id], current_user)
+                flash[:success] = "Success! #{@pokemon.name.capitalize} was successfully caught."
                 redirect "/pokemon/#{@pokemon.id}"
             else
-                flash[:notice] = "You don't have any Pokéballs"
-                redirect "/pokedex/pokemon/#{@pokemon.id}"
+                flash[:danger] = "Failure! You do not have any Pokéballs."
+                redirect "/pokedex/pokemon/#{params[:id]}"
             end
         else
             redirect "/sign-in"
