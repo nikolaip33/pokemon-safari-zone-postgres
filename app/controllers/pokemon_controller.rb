@@ -54,9 +54,11 @@ class PokemonController < ApplicationController
         if logged_in?
             @pokemon = current_user.pokemon.find_by(id: params[:id])
             if @pokemon && @pokemon.destroy
+                flash[:success] = "Success! #{@pokemon.name.capitalize} was successfully released."
                 redirect "/trainers/#{current_user.id}"
             end
         else
+            flash[:danger] = "Failure! Your are not the trainer for this pokémon."
             redirect "/sign-in"
         end
     end

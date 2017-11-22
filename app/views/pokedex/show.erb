@@ -12,11 +12,11 @@
         Weight: <%= @pokemon.weight/10.to_f %> kg<br>
         Level: <%= @pokemon.level %><br>
         </p>
-
+        <%if logged_in?%>
         <form method="post" action="/pokedex/pokemon/<%=@pokemon.id%>">
             <input class="btn btn-success" type="submit" value="Catch">
         </form>
-        
+        <%end%>
     </div>
 </div>
 

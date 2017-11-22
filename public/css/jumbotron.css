@@ -122,6 +122,10 @@ span.level {
   float: left;
 }
 
+.catch {
+  margin-right: 10px;
+}
+
 .btn.release, .btn.more-info {
   margin-left: 10px;
 }
@@ -213,6 +217,10 @@ span.level {
     float:none;
   }
   
+  .catch {
+    margin-right :0;
+  }
+
   .btn.release, .btn.more-info {
     margin-left: 0;
   }

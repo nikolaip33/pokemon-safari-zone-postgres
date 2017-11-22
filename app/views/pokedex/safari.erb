@@ -12,11 +12,12 @@
     Weight: ?? kg<br>
     Level: ??<br>
     </p>
-
+    <%if logged_in?%>
     <form method="post" action="/pokedex/pokemon/<%=@pokemon.id%>">
-        <input class="btn btn-success float" type="submit" value="Catch">
+        <input class="btn btn-success float catch" type="submit" value="Catch">
     </form>
-    <a href="/pokedex/pokemon/<%=@pokemon.id%>" class="btn btn-info float more-info">Identify</a>
+    <%end%>
+    <a href="/pokedex/pokemon/<%=@pokemon.id%>" class="btn btn-info float">Identify</a>
 </div>
 </div>
 

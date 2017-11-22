@@ -35,6 +35,7 @@ class PokedexController < ApplicationController
                 redirect "/pokedex/pokemon/#{params[:id]}"
             end
         else
+            "Failure! You are not signed in."
             redirect "/sign-in"
         end
     end
