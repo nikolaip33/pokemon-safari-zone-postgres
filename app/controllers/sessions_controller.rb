@@ -31,14 +31,18 @@ class SessionsController < ApplicationController
     end
 
     post '/sign-in' do
-        @trainer = Trainer.find_by(username: params[:username])
-        if @trainer && @trainer.authenticate(params[:password])
-            login(@trainer)
-            @trainer.add_candy
-            @trainer.add_pokeballs
-            redirect "/trainers/#{@trainer.id}"
+        if @trainer = Trainer.find_by(username: params[:username])
+            if @trainer && @trainer.authenticate(params[:password])
+                login(@trainer)
+                @trainer.add_candy
+                @trainer.add_pokeballs
+                redirect "/trainers/#{@trainer.id}"
+            else
+                flash[:danger] = "Failure! Incorrect password."
+                redirect '/sign-in'
+            end
         else
-            flash[:notice] = "Incorrect Sign In Information."
+            flash[:danger] = "Failure! Trainer not found."
             redirect '/sign-in'
         end
     end
@@ -52,9 +56,7 @@ class SessionsController < ApplicationController
     end
 
     get '/power' do
-        session.clear
-        @current_user = nil
-        redirect "/sign-in"
+        logout
     end
 
 end

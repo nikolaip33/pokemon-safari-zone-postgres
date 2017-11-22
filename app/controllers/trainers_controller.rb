@@ -1,12 +1,12 @@
 class TrainersController < ApplicationController
     
     get '/trainers' do
-        @trainers = Trainer.all
+        @trainers = Trainer.order(:username)
         erb :"/trainers/page"
     end
     
     get '/trainers/:id/edit' do
-        if logged_in? && current_user.id == params[:id].to_i
+        if logged_in? && current_user == Trainer.find_by(id: params[:id])
             @trainer = current_user
             erb :"/trainers/edit"
         else
@@ -35,7 +35,7 @@ class TrainersController < ApplicationController
     patch '/trainers/:id' do
         if logged_in?
             if current_user == Trainer.find_by(id: params[:id])
-                if current_user.update(params[:t].reject{|_, v| v.blank?})
+                if current_user.update(params[:t].reject{|k, v| v.blank?})
                     flash[:success] = "Success! Your information has been updated."
                     redirect "/trainers/#{current_user.id}/edit"
                 else
