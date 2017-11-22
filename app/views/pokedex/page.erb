@@ -22,8 +22,8 @@
                 <li><a href="<%=i%>"><%=i%></a></li> 
                 <% end %>
                 <% end %>
-                <%if @active.to_i + 1 == 41%>
-                <li>
+                <%if @active.to_i == 40%>
+                <li class="disabled">
                     <a href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     </a>
@@ -77,8 +77,8 @@
                 <li><a href="<%=i%>"><%=i%></a></li> 
                 <% end %>
                 <% end %>
-                <%if @active.to_i + 1 == 41%>
-                <li>
+                <%if @active.to_i == 40%>
+                <li class="disabled">
                     <a href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     </a>
