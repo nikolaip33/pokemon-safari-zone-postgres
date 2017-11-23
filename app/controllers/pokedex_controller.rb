@@ -42,10 +42,11 @@ class PokedexController < ApplicationController
 
     get '/pokedex/page/:page' do
         if params[:page].to_i.between?(1,40)
-            @index = index(params[:page])
-            @active = params[:page]
-            @pokelist = Pokedex.new(params[:page].to_i).validate
-            @navlinks = create_nav(params[:page].to_i)
+            @pokedex = Pokedex.new(params[:page].to_i)
+            @index = @pokedex.index
+            @active = @pokedex.page
+            @pokelist = @pokedex.validate
+            @navlinks = @pokedex.create_nav
             erb :"/pokedex/page"
         elsif params[:page].to_i <= 0
             redirect "/pokedex/page/1"
@@ -53,53 +54,6 @@ class PokedexController < ApplicationController
             redirect "/pokedex/page/40"
         else
             redirect "/pokedex/page/1"
-        end
-    end
-
-    helpers do
-
-        def index(n)
-            ((n.to_i-1)*20)+1
-        end
-
-        def create_nav(n)
-            a = [] 
-            first = 1
-            last = 40
-            
-            if n <= 5
-              a[0] = first
-              a[1] = 2
-              a[2] = 3
-              a[3] = 4
-              a[4] = 5
-              a[5] = 6
-              a[6] = last-(last)*2/3.ceil
-              a[7] = last-(last)*1/3.ceil
-              a[8] = last
-        
-            elsif n >= last-4
-              a[0] = first
-              a[1] = (n)*1/3.ceil
-              a[2] = (n )*2/3.ceil
-              a[3] = last-5
-              a[4] = last-4
-              a[5] = last-3
-              a[6] = last-2
-              a[7] = last-1
-              a[8] = last
-            else
-              a[0] = first
-              a[1] = (n)*1/3.ceil
-              a[2] = (n)*2/3.ceil
-              a[3] = n-1
-              a[4] = n  
-              a[5] = n+1
-              a[6] = last-(last-n)*2/3.ceil
-              a[7] = last-(last-n)*1/3.ceil
-              a[8] = last
-            end
-            a
         end
     end
 
