@@ -17,8 +17,9 @@ class TrainersController < ApplicationController
 
     get '/trainers/:id' do
         if @trainer = Trainer.find_by(id: params[:id])
+            @pokemon = @trainer.pokemon
             if logged_in? && current_user == @trainer
-                if @trainer.pokemon.length == 0
+                if @pokemon.length == 0
                     erb :"/trainers/show_new"
                 else
                     erb :"/trainers/show_owner"

@@ -31,6 +31,23 @@ class PokemonController < ApplicationController
         end
     end
 
+    post '/pokemon/:id' do
+        if logged_in?
+            if current_user.pokeballs > 0
+                current_user.update_attribute(:pokeballs, current_user.pokeballs - 1)
+                @pokemon = Pokemon.create_from_base(params[:id], current_user)
+                flash[:success] = "Success! #{@pokemon.name.capitalize} was successfully caught."
+                redirect "/pokemon/#{@pokemon.id}"
+            else
+                flash[:danger] = "Failure! You do not have any Pokéballs."
+                redirect "/pokedex/pokemon/#{params[:id]}"
+            end
+        else
+            "Failure! You are not signed in."
+            redirect "/sign-in"
+        end
+    end
+
     patch '/pokemon/:id' do
         if logged_in?
             if @pokemon = current_user.pokemon.find_by(id: params[:id])

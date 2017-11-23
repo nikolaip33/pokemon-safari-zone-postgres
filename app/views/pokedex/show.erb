@@ -13,7 +13,7 @@
         Level: <%= @pokemon.level %><br>
         </p>
         <%if logged_in?%>
-        <form method="post" action="/pokedex/pokemon/<%=@pokemon.id%>">
+        <form method="post" action="/pokemon/<%=@pokemon.id%>">
             <input class="btn btn-success" type="submit" value="Catch">
         </form>
         <%end%>

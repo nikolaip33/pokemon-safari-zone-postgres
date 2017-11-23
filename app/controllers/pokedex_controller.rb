@@ -58,9 +58,3 @@ class PokedexController < ApplicationController
     end
 
 end
-
-def paginate(n)
-    offset = (n.to_i-1)*20
-    limit = offset == 780 ? 21 : 20
-    "?limit=#{limit}&offset=#{offset}"
-end
