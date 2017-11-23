@@ -11,7 +11,8 @@ class PokemonBase < ActiveRecord::Base
         "tapu-fini",
         "type-null",
         "porygon-z",
-        "mime-jr"
+        "mime-jr",
+        "mr-mime"
     ]
 
     def self.create_from_api(id)

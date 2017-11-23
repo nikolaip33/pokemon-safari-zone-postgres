@@ -19,7 +19,7 @@ class Pokedex
 
     def initialize(page)
         @page = page.to_i
-        path = "http://pokeapi.co/api/v2/pokemon/#{paginate(page.to_i)}"
+        path = "http://pokeapi.co/api/v2/pokemon/#{paginate(self.page.to_i)}"
         @pokemon = JSON.parse(RestClient.get(path, headers={}))["results"]
     end
 
