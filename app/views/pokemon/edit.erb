@@ -15,8 +15,8 @@
         Type: <%= @pokemon.type_1.capitalize %><% if @pokemon.type_2 != nil%>, <%= @pokemon.type_2.capitalize %><% end %><br>
         Height: <%= @pokemon.height/10.to_f %> m<br>
         Weight: <%= @pokemon.weight/10.to_f %> kg<br>
-        <span class="level">Level </span>
-        <input class="level-range" type="range" name="p[level]" min="1" max="100" value="<%= @pokemon.level %>" step="1">
+        <span class="level">Level:</span><output name="levelOutput" id="levelOutput"><%= @pokemon.level %></output>  
+        <input class="level-range" type="range" name="p[level]" min="1" max="100" value="<%= @pokemon.level %>" step="1"  id="level" oninput="levelOutput.value = level.value">
         </p>
         <input type="submit" class="btn btn-warning" value="Complete Training">
         
@@ -26,33 +26,33 @@
 <div class="row poke-stats">
     <div class="col-md-4 col-xs-6">
         <h3>Health</h3>
-        <input type="range" name="p[hp]" min="1" max="<%=(@base.hp+99)*2%>" value="<%= @pokemon.hp %>" step="1">
-        <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= @pokemon.hp %></p>
+        <input type="range" name="p[hp]" min="1" max="<%=(@base.hp+99)*2%>" value="<%= @pokemon.hp %>" step="1" id="hp" oninput="hpOutput.value = hp.value">
+        <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <output name="hpOutput" id="hpOutput"><%= @pokemon.hp %></output></p>
     </div>
     <div class="col-md-4 col-xs-6">
         <h3>Attack</h3>
-        <input type="range" name="p[attack]" min="1" max="<%=(@base.attack+99)*2%>" value="<%= @pokemon.attack %>" step="1">
-        <p><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> <%= @pokemon.attack %></p>
+        <input type="range" name="p[attack]" min="1" max="<%=(@base.attack+99)*2%>" value="<%= @pokemon.attack %>" step="1" id="attack" oninput="attackOutput.value = attack.value">
+        <p><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> <output name="attackOutput" id="attackOutput"><%= @pokemon.attack %></output></p>
     </div>
     <div class="col-md-4 col-xs-6">
         <h3>Speed</h3>
-        <input type="range" name="p[speed]" min="1" max="<%=(@base.speed+99)*2%>" value="<%= @pokemon.speed %>" step="1">
-        <p><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> <%= @pokemon.speed %></p>
+        <input type="range" name="p[speed]" min="1" max="<%=(@base.speed+99)*2%>" value="<%= @pokemon.speed %>" step="1" id="speed" oninput="speedOutput.value = speed.value">
+        <p><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> <output name="speedOutput" id="speedOutput"><%= @pokemon.speed %></output></p>
     </div>
     <div class="col-md-4 col-xs-6">
         <h3>Defense</h3>
-        <input type="range" name="p[defense]" min="1" max="<%=(@base.defense+99)*2%>" value="<%= @pokemon.defense %>" step="1">
-        <p><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> <%= @pokemon.defense %></p>
+        <input type="range" name="p[defense]" min="1" max="<%=(@base.defense+99)*2%>" value="<%= @pokemon.defense %>" step="1" id="defense" oninput="defenseOutput.value = defense.value">
+        <p><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> <output name="defenseOutput" id="defenseOutput"><%= @pokemon.defense %></output></p>
     </div>
     <div class="col-md-4 col-xs-6">
         <h3>Sp. Attack</h3>
-        <input type="range" name="p[special_attack]" min="1" max="<%=(@base.special_attack+99)*2%>" value="<%= @pokemon.special_attack %>" step="1">
-        <p><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> <%= @pokemon.special_attack %></p>
+        <input type="range" name="p[special_attack]" min="1" max="<%=(@base.special_attack+99)*2%>" value="<%= @pokemon.special_attack %>" step="1" id="special_attack" oninput="special_attackOutput.value = special_attack.value">
+        <p><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> <output name="special_attackOutput" id="special_attackOutput"> <%= @pokemon.special_attack %></output></p>
     </div>
     <div class="col-md-4 col-xs-6">
         <h3>Sp. Defense</h3>
-        <input type="range" name="p[special_defense]" min="1" max="<%=(@base.special_defense+99)*2%>" value="<%= @pokemon.special_defense %>" step="1">
-        <p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= @pokemon.special_defense %></p>
+        <input type="range" name="p[special_defense]" min="1" max="<%=(@base.special_defense+99)*2%>" value="<%= @pokemon.special_defense %>" step="1" id="special_defense" oninput="special_defenseOutput.value = special_defense.value">
+        <p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <output name="special_defenseOutput" id="special_defenseOutput"><%= @pokemon.special_defense %></output></p>
     </div>
 </form>
 </div>
