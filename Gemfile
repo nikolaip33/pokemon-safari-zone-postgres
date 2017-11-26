@@ -14,6 +14,7 @@ gem "tux"
 gem 'rest-client'
 gem 'json'
 gem 'sinatra-flash'
+gem 'puma'
 
 group :test do
   gem 'rspec'

@@ -60,6 +60,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.1)
+    puma (3.11.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -134,6 +135,7 @@ DEPENDENCIES
   json
   pg
   pry
+  puma
   rack-test
   rake
   require_all
