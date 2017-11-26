@@ -4,9 +4,9 @@ class CreatePokemonBases < ActiveRecord::Migration
       t.string :name
       t.string :type_1
       t.string :type_2
-      t.string :height
-      t.string :weight
-      t.string :level
+      t.integer :height
+      t.integer :weight
+      t.integer :level
     end
   end
 end
