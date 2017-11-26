@@ -1,6 +1,6 @@
 <div class="row trainer">
 <% @trainers.each do |trainer| %>
-    <% if pokemon = trainer.pokemon[-1] %>
+    <% if pokemon = trainer.pokemon.last %>
 
             <div class="col-xs-12 col-sm-6 pokegrid trainer-last">
                 <a href="/trainers/<%=trainer.id%>"><img class="<%= pokemon.shiny %>" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/<%=img_index(pokemon.pokedex_number)%>.png"></a>
