@@ -9,10 +9,8 @@ class SessionsController < ApplicationController
     end
 
     post '/register' do
-        params[:candy] = 5000
-        params[:pokeballs] = 5
-        @trainer = Trainer.create(params)
-        if @trainer.valid?
+        @trainer = Trainer.new(params)
+        if @trainer.save
             login(@trainer)
             flash[:success] = "Success! Account successfully created. Welcome to the Pokémon Safari Zone."
             redirect "/trainers/#{@trainer.id}"
