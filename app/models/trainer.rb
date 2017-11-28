@@ -10,7 +10,7 @@ class Trainer < ActiveRecord::Base
     end
 
     def add_pokeballs
-        self.candy ? self.update_attribute(:pokeballs, self.pokeballs + 5) : self.update_attribute(:pokeballs, 5)
+        self.pokeballs ? self.update_attribute(:pokeballs, self.pokeballs + 5) : self.update_attribute(:pokeballs, 5)
     end
 end
 
